@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Aviya Patisserie - Order Now</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+	
+	<!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/logo.png">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
+            <a href="index.html" class="navbar-brand ml-lg-3">
+                <h1 class="m-0 text-uppercase text-primary"><span class="text-secondary">Aviya</span> Patisserie</h1>
+            </a>
+        </nav>
+    </div>
+    <div class="jumbotron jumbotron-fluid page-header" style="margin-bottom: 90px; background: #f8f9fa;">
+        <div class="container text-center py-5">
+            <h1 class="text-primary display-3 mt-lg-5">Complete Your Order</h1>
+            <div class="d-inline-flex align-items-center text-secondary">
+                <p class="m-0"><a class="text-secondary" href="index.html">Home</a></p>
+                <i class="fa fa-circle px-3"></i>
+                <p class="m-0">Order</p>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="contact-form bg-light rounded p-5">
+                        <form action="https://formspree.io/f/mgeavvpo" method="POST" id="orderForm">
+                            <input type="hidden" name="_language" value="en">
+                            <input type="hidden" name="_subject" value="New Order from Aviya Patisserie!">
+
+                            <div class="control-group mb-4">
+                                <label class="font-weight-bold text-secondary">You Are Ordering:</label>
+                                <input type="text" class="form-control p-4" id="productName" name="product" readonly style="background-color: #e9ecef; border: 2px solid #ff69b4;">
+                            </div>
+
+                            <div class="control-group mb-3">
+                                <input type="text" class="form-control p-4" name="customer_name" placeholder="Your Full Name" required="required" />
+                            </div>
+
+                            <div class="control-group mb-3">
+                                <input type="tel" class="form-control p-4" name="phone" placeholder="Your Phone Number" required="required" />
+                            </div>
+
+                            <div class="control-group mb-3">
+                                <input type="text" class="form-control p-4" name="address" placeholder="Delivery Address (City, Street, House No.)" required="required" />
+                            </div>
+
+                            <div class="control-group mb-3">
+                                <textarea class="form-control p-4" rows="3" name="special_requests" placeholder="Special Requests (e.g., Allergies, writing on the cake)"></textarea>
+                            </div>
+
+                            <div>
+                                <button class="btn btn-primary btn-block py-3 px-5" type="submit" id="placeOrderButton">Place Order</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid footer bg-light py-5" style="margin-top: 90px;">
+        <div class="container text-center py-5">
+            <div class="row">
+                <div class="col-12 mb-4">
+                    <h1 class="m-0 text-uppercase text-primary"><span class="text-secondary">Aviya</span> Patisserie</h1>
+                </div>
+                <div class="col-12 text-secondary">
+                    <p class="m-0">&copy; All Rights Reserved. Designed by Aviya Patisserie 2026</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const product = urlParams.get('product');
+        if (product) {
+            document.getElementById('productName').value = product.replace(/_/g, ' ');
+        } else {
+            document.getElementById('productName').value = "General Inquiry";
+        }
+    </script>
+
+</body>
+</html>
